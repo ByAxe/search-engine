@@ -1,7 +1,7 @@
 package com.byaxe.interview.searchengine;
 
 import com.byaxe.interview.searchengine.core.SearchEngineUtils;
-import com.byaxe.interview.searchengine.dto.Document;
+import com.byaxe.interview.searchengine.dto.DocumentReference;
 import com.byaxe.interview.searchengine.dto.Word;
 import com.byaxe.interview.searchengine.service.api.ISearchService;
 import org.junit.jupiter.api.Test;
@@ -35,7 +35,7 @@ class SearchEngineApplicationTests {
     void whenNormalPhraseGetFirstDocument_shouldReturnSuccessNoResults() {
         final String testString = "Hello, my lovely World!";
 
-        Document document = searchService.getFirstDocument(testString);
+        DocumentReference document = searchService.getFirstDocument(testString);
 
         Assert.isNull(document, "Document should be null");
     }
@@ -45,7 +45,7 @@ class SearchEngineApplicationTests {
         final String testString = "Hello, my lovely World!";
         final long n = 10;
 
-        List<Document> documents = searchService.getFirstNDocuments(testString, n);
+        List<DocumentReference> documents = searchService.getFirstNDocuments(testString, n);
 
         Assert.isTrue(documents.isEmpty(), "There should be no documents found");
     }
@@ -54,7 +54,7 @@ class SearchEngineApplicationTests {
     void whenNormalPhraseGetAllDocuments_shouldReturnSuccessNoResults() {
         final String testString = "Hello, my lovely World!";
 
-        List<Document> documents = searchService.getAllDocuments(testString);
+        List<DocumentReference> documents = searchService.getAllDocuments(testString);
 
         Assert.isTrue(documents.isEmpty(), "There should be no documents found");
     }

@@ -1,6 +1,6 @@
 package com.byaxe.interview.searchengine.service.api;
 
-import com.byaxe.interview.searchengine.dto.Document;
+import com.byaxe.interview.searchengine.dto.DocumentReference;
 import com.byaxe.interview.searchengine.dto.Word;
 import lombok.NonNull;
 
@@ -15,9 +15,9 @@ public interface ISearchService {
      */
     @NonNull List<Word> splitQuery(@NonNull String query);
 
-    @NonNull List<Document> getAllDocuments(@NonNull String query);
+    @NonNull List<DocumentReference> getAllDocuments(@NonNull String query);
 
-    @NonNull List<Document> getFirstNDocuments(@NonNull String query, long n);
+    @NonNull List<DocumentReference> getFirstNDocuments(@NonNull String query, long n);
 
-    Document getFirstDocument(@NonNull String query);
+    DocumentReference getFirstDocument(@NonNull String query);
 }

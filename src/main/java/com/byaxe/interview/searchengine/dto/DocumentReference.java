@@ -1,14 +1,17 @@
 package com.byaxe.interview.searchengine.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
- * Part of document from storage
+ * Part of document from storage (reference to the real Document)
  */
 @Data
-public class Document {
+@Builder
+public class DocumentReference {
 
     /**
      * Document unique id
@@ -29,5 +32,5 @@ public class Document {
      * Like in Google Search, when you see the first result as paragraph
      * within found context (searched phrase inside of it)
      */
-    private String contentPlusSurrounding;
+    private List<String> coincidedContent;
 }
