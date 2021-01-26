@@ -8,14 +8,14 @@ ___
 - [x] Push project on Git
 - [x] Add basic architecture
 - [ ] **Implement Trie & TrieNode**
-- [ ] **How distinguish languages?**
+- [x] **How distinguish languages?**
 - [ ] Add Search "template implementation" for four options
-    - [ ] Trie search
-    - [ ] Machine Learning vectorization search
-    - [ ] RegExp search
-    - [ ] Mixed search
+  - [x] Trie search
+  - [ ] Machine Learning vectorization search
+  - [ ] RegExp search
+  - [ ] Mixed search
 - [ ] Add basic implementation of Trie search
-- [ ] Make tests with success
+- [x] Make test with success
 - [ ] Create test dataset
 - [ ] Create test coverage
 

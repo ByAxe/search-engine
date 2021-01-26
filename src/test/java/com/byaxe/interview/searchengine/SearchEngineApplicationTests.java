@@ -11,6 +11,7 @@ import org.springframework.util.Assert;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @SpringBootTest
 class SearchEngineApplicationTests {
@@ -19,6 +20,21 @@ class SearchEngineApplicationTests {
     private ISearchService searchService;
 
     @Test
+    void splitStringTest() {
+        final String testString = "Hello, my lovely World!";
+
+        final List<Word> words = searchService.splitQuery(testString);
+
+        Assert.notEmpty(words, "There must be words!");
+
+        final String output = words.stream()
+                .map(Word::getContent)
+                .collect(Collectors.joining(" "));
+
+        System.out.println(output);
+    }
+
+    //    @Test
     void whenNormalPhraseSplit_shouldReturnSuccessList() {
         final String testString = "Hello, my lovely World!";
 
@@ -31,7 +47,7 @@ class SearchEngineApplicationTests {
         Assert.isTrue(expected.equals(actual), "Actual result is not equal to expected");
     }
 
-    @Test
+    //    @Test
     void whenNormalPhraseGetFirstDocument_shouldReturnSuccessNoResults() {
         final String testString = "Hello, my lovely World!";
 
@@ -40,7 +56,7 @@ class SearchEngineApplicationTests {
         Assert.isNull(document, "Document should be null");
     }
 
-    @Test
+    //    @Test
     void whenNormalPhraseGetFirstNDocuments_shouldReturnSuccessNoResults() {
         final String testString = "Hello, my lovely World!";
         final long n = 10;
@@ -50,7 +66,7 @@ class SearchEngineApplicationTests {
         Assert.isTrue(documents.isEmpty(), "There should be no documents found");
     }
 
-    @Test
+    //    @Test
     void whenNormalPhraseGetAllDocuments_shouldReturnSuccessNoResults() {
         final String testString = "Hello, my lovely World!";
 

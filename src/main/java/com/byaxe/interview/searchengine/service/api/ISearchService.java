@@ -15,6 +15,8 @@ public interface ISearchService {
      */
     @NonNull List<Word> splitQuery(@NonNull String query);
 
+    @NonNull List<Word> splitQueryIntoNormalizedWords(@NonNull String query);
+
     @NonNull List<DocumentReference> getAllDocuments(@NonNull String query);
 
     @NonNull List<DocumentReference> getFirstNDocuments(@NonNull String query, long n);

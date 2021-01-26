@@ -1,5 +1,6 @@
 package com.byaxe.interview.searchengine.core;
 
+import com.byaxe.interview.searchengine.core.enums.Language;
 import com.byaxe.interview.searchengine.dto.DocumentReference;
 import com.byaxe.interview.searchengine.dto.IndexedDocument;
 import com.byaxe.interview.searchengine.dto.Word;
@@ -7,7 +8,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * Type of trees where each node connected to N children
@@ -30,6 +30,7 @@ public class SearchTrie {
         document.getWords()
                 .forEach(word -> currentNode
                         .getChildren()
+                        // todo merge SearchTrieNodes
                         .putIfAbsent(word, new SearchTrieNode(word, id)));
 
         currentNode.setEndOfDocument(true);
@@ -81,5 +82,11 @@ public class SearchTrie {
 
     }
 
+    public List<DocumentReference> findAndFilter(List<Word> query, Set<Language> languageSet) {
 
+        // TODO Check via a "Bloom Filter" documents
+        //  and filter out those not containing needed languages
+
+        return find(query);
+    }
 }

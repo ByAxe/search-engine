@@ -15,4 +15,5 @@ public class IndexedDocument {
     private Language mainLanguage;
     private List<String> words;
     private long lengthInSymbols;
+    private boolean isMonoLanguageDocument;
 }

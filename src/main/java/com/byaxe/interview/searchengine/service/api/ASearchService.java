@@ -13,7 +13,7 @@ public abstract class ASearchService implements ISearchService {
      * @param query query, split into {@link Word}
      * @return list of normalized words
      */
-    protected List<Word> normalizeQuery(List<Word> query) {
+    protected List<Word> normalizeWords(List<Word> query) {
         return query.stream()
                 .map(this::normalizeWord)
                 .collect(Collectors.toList());
@@ -26,7 +26,4 @@ public abstract class ASearchService implements ISearchService {
      * @return normalized word
      */
     protected abstract Word normalizeWord(Word originalWord);
-
-    protected abstract List<Word> splitQueryToListOfWords(String query);
-
 }
