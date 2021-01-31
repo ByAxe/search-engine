@@ -51,7 +51,15 @@ public class SearchService extends ASearchService {
      */
     @Override
     protected Word normalizeWord(Word originalWord) {
-        // https://docs.oracle.com/javase/tutorial/i18n/text/normalizerapi.html
+        // TODO Remove stopwords
+
+        // TODO Noise removal
+
+        // TODO Stemming
+
+        // TODO Lemmatisation
+
+        // Normalization https://docs.oracle.com/javase/tutorial/i18n/text/normalizerapi.html
         final String normalizedContent = Normalizer.normalize(originalWord.getContent(), Normalizer.Form.NFKD);
 
         return Word.builder()
